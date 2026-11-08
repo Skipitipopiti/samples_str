@@ -2,7 +2,7 @@ import os
 import json
 
 BASE_URL = "https://raw.githubusercontent.com/Skipitipopiti/samples_str/main/"
-OUTPUT_FILE = "config.json"
+OUTPUT_FILE = "strudel.json"
 AUDIO_EXTENSIONS = {".wav", ".mp3", ".flac", ".ogg"}
 
 result = {"_base": BASE_URL}
