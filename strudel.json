@@ -1,10 +1,11 @@
 {
   "_base": "https://raw.githubusercontent.com/Skipitipopiti/samples_str/main/",
+  "blue_kick": "blue/drums/blue_kick.wav",
   "ta_fillsnare_01": "ta/drums/ta_fillsnare_01.wav",
   "ta_fillsnare_02": "ta/drums/ta_fillsnare_02.wav",
   "ta_h": "ta/drums/ta_h.wav",
   "ta_kick": "ta/drums/ta_kick.wav",
-  "ta_mainsnare": "ta/drums/ta_mainsnare.wav",
+  "ta_mainsnare": "ta/drums/ta_mainsnare.mp3",
   "ta_bass_01": "ta/Synth/ta_bass_01.wav",
   "ta_bass_02": "ta/Synth/ta_bass_02.wav",
   "ta_bass_03": "ta/Synth/ta_bass_03.wav",
