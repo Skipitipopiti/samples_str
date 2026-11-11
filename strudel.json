@@ -1,6 +1,6 @@
 {
   "_base": "https://raw.githubusercontent.com/Skipitipopiti/samples_str/main/",
-  "blue_kick": ["blue/drums/blue_kick.wav"],
+  "blue_kick": "blue/drums/blue_kick.wav",
   "ta_fillsnare_01": "ta/drums/ta_fillsnare_01.wav",
   "ta_fillsnare_02": "ta/drums/ta_fillsnare_02.wav",
   "ta_h": "ta/drums/ta_h.wav",
