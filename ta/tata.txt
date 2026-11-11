@@ -1,0 +1,84 @@
+// @title Tata -----
+// @by Media
+// @genre Hyper
+setcps(140/60/4)
+samples('https://raw.githubusercontent.com/Skipitipopiti/samples_str/main/strudel.json')
+/*
+  ====================================================================================================================================================================================
+                                                           __        __       
+                                                          / /_____ _/ /_____ _
+                                                         / __/ __ '/ __/ __ '/
+                                                        / /_/ /_/ / /_/ /_/ / 
+                                                        \__/\__,_/\__/\__,_/  
+                                                        
+  =======================================================================================================================================================================================
+*/
+//[x x x x]
+
+// 
+
+
+
+const fillSnare_s = [
+  "[-!7 [- - x*2 x*2]]/4",                                                                      
+  "[-]!6 [-!7 x ] [- x -!6] [-]!4 [-!7 x ] [-]!2 [-!5 - x x ]", "[-]!6 [-!7 x ] [- x -!6] [-]!4 [-!7 x ] [-]!2 [-!5 - x x ]",                    
+  "-"                                                                          
+]// xx
+const fillsnare_m = [
+  "[-]!6 [-!7 0.9 ] [- 0.8  -!6] [-]!4 [-!7 0.7   ] [-]!2 [-!5 - 0.9 0.7 ]",       //Accent
+  "[-]!6 [-!7 1.0 ] [- 0.98 -!6] [-]!4 [-!7 0.98 ] [-]!2 [-!5 - 0.97 1 ]"          //pitch
+]//xx
+
+const hat_s = [
+  "[[- - - - x - - -]!4]",
+  "[- - - x [[- x] - - -] - - -]!4"
+] //_h
+
+
+const bass_samp = [
+  "ta_bass_intro/2",
+  "ta_bass_01",
+  "<ta_bass_02 ta_bass_03>",
+  "ta_bass_01"
+]
+const lead_samp = [
+  "-",
+  "<ta_lead_01 ta_lead_02>",
+  "<ta_lead_03 ta_lead_04>",
+  "<ta_lead_br1 ta_lead_br2>"
+]
+const PG = [
+  "1",
+  "[0.5 1 ]*4", "[0.5 1 ]*4",
+  "1"
+]
+//CONTROLS==================================================================================================================================
+// 0 - 2 
+const sect = 3
+// 0-1                                                       
+const _h = 0
+/*Intro fill*/2
+FILL:s("ta_fillSnare_02").struct(pick(fillSnare_s, 0)).gain(slider(0,0,1))
+//=========================================================================================================================================
+
+_DRUMS: stack(
+  
+  /*Kick*/ 
+  s("ta_kick").struct("x*4").whenKey("alt : 1", x => x.gain(0)),
+
+  /*Main Snare*/
+  s("ta_mainsnare").struct("[- x]*2").room(0.005).whenKey("alt : 2", x => x.gain(0)),
+
+  /*Normal Fill*/
+  s("ta_fillSnare_01").struct(pick(fillSnare_s, 1)).postgain(pick(fillsnare_m,0)).speed(pick(fillsnare_m,1)).slow(8).room(0.01).whenKey("alt : 2", x => x.gain(0)),
+
+  
+  /*Hats*/
+  s("ta_h").struct(pick(hat_s, _h)).postgain("[[- - - 0.2 [[1 1.5] - - -] - - -]!4]").room(0.01).whenKey("alt : 3", x => x.gain(0))
+)//.pianoroll({cycles:1} )
+
+BASS:s(pick(bass_samp,sect)).slow(4).chop(32).gain(0.6).postgain(pick(PG,sect)).room(0.2)
+  
+LEAD:s(pick(lead_samp,sect)).slow(4).chop(32).gain(0.5).postgain(pick(PG,sect)).room(0.5).lpf(slider(20,20,20000))
+  
+all(pianoroll)
